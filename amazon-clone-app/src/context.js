@@ -6,7 +6,12 @@ const AppContext = React.createContext()
 const AppProvider = ({children}) => {
 
     const initialState = {
-        cart:[]
+        cart:[],
+        user:null
+    }
+
+    const setUser = (authUser) => {
+        dispatch({type:'SET_USER',payload:authUser})
     }
 
     const addToCart = (title,image,price,rating) => {
@@ -33,7 +38,7 @@ const AppProvider = ({children}) => {
         },0)
 
     return(
-        <AppContext.Provider value={{addToCart,...state,totalAmount,removeItem}}>
+        <AppContext.Provider value={{addToCart,...state,totalAmount,removeItem,setUser}}>
             {children}
         </AppContext.Provider>
     )

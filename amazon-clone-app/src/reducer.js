@@ -28,6 +28,13 @@ export const reducer = (state,action) => {
                 ...state,
                 cart:newCartValue
             }
+
+        case 'SET_USER':
+            return {
+                ...state,
+                user:action.payload
+            }
+
         default:
             return state
     }

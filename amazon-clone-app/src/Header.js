@@ -4,9 +4,16 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import {Link} from 'react-router-dom'
 import { useGlobalContext } from './context';
+import {auth} from './firebase'
 
 const Header = () => {
-    const { cart } = useGlobalContext()
+    const { cart,user } = useGlobalContext()
+
+    const handleAuth = () => {
+        if(user){
+            auth.signOut();
+        }
+    }
     return (
         <div className='header'>
             <Link to='/'>
@@ -17,10 +24,12 @@ const Header = () => {
                 <SearchIcon className='header-searchIcon' />
             </div>
             <div className='header-nav'>
-                <div className='header-option'>
-                    <span className='header-optionLineOne'>Hello Guest</span>
-                    <span className='header-optionSecondLine'>Sign In</span>
-                </div>
+                <Link to={!user && '/login'}>
+                    <div className='header-option' onClick={handleAuth}>
+                        <span className='header-optionLineOne'>Hello Guest</span>
+                        <span className='header-optionSecondLine'>{user? 'Sign Out' : 'Sign In'}</span>
+                    </div>
+                </Link>
                 <div className='header-option'>
                     <span className='header-optionLineOne'>Return</span>
                     <span className='header-optionSecondLine'>& Orders</span>
