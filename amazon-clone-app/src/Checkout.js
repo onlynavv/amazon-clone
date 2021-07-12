@@ -6,13 +6,14 @@ import { useGlobalContext } from './context'
 
 const Checkout = () => {
 
-    const {cart} = useGlobalContext()
+    const {cart,user} = useGlobalContext()
 
     return (
         <div className='checkout'>
             <div className="checkout-left">
                 <img className='checkout-ad' src='https://images-eu.ssl-images-amazon.com/images/G/31/img21/Monitors/Co-op/LG/LG_June_1500x300.jpg' alt=''></img>
                 <div>
+                    <h3 style={{padding:'10px'}}>Hello, {user.email}</h3>
                     <h2 className="checkout-title">
                         Your Shopping Basket
                     </h2>
