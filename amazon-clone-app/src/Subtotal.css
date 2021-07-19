@@ -20,12 +20,14 @@
 }
 
 .subtotal > button {
-  background-color: #f0c14b;
+  background-image: linear-gradient(to bottom, #f7d173, #e2c13e);
   border-radius: 3px;
   width: fit-content;
   padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
   border: solid 1px #9c7e31;
-  margin-top: 10px;
+  margin-top: 2px;
   color: black;
   cursor: pointer;
 }

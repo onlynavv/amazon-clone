@@ -1,0 +1,11 @@
+.feed-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  margin-top: -190px;
+  z-index: 99;
+}
+
+.checkout-ad {
+  grid-column-end: span 3;
+}

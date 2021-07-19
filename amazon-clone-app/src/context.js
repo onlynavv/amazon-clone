@@ -14,12 +14,14 @@ const AppProvider = ({children}) => {
         dispatch({type:'SET_USER',payload:authUser})
     }
 
-    const addToCart = (title,image,price,rating) => {
+    const addToCart = (id,title,image,price,description,hasPrime,rating) => {
         dispatch({type:'ADD', payload:{
-            id: new Date().getTime().toString(),
+            id: id,
             title:title,
             image:image,
             price:price,
+            description:description,
+            hasPrime:hasPrime,
             rating:rating
         }})   
     }
