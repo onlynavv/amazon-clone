@@ -1,10 +1,12 @@
 import React from 'react'
 import './Subtotal.css'
 import { useGlobalContext } from './context'
+import {useHistory} from 'react-router-dom'
 
 const Subtotal = () => {
 
     const {cart,totalAmount} = useGlobalContext()
+    const history = useHistory()
 
     return (
         <div className='subtotal'>
@@ -14,7 +16,7 @@ const Subtotal = () => {
             <small className='subtotal-gift'>
                 <input type='checkbox'></input>This order contains gift
             </small>
-            <button>Proceed to checkout</button>
+            <button onClick={()=>{history.push('/payment')}}>Proceed to checkout</button>
         </div>
     )
 }
